@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Nav from "@/components/Nav"
 import Cursor from "@/components/Cursor"
+import Footer from "@/components/Footer"
 
 type IconsURLs = {
   icon: string;
@@ -34,14 +34,18 @@ export default function RootLayout({
         <link rel="icon" href="/static/icons/favicon.ico" sizes="any" />
         <link rel="stylesheet" href="https://use.typekit.net/zfd0jrc.css" />
         <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon.png" type="image/png" sizes="any" />
-        <link rel="icon2" href="/static/icons/favicon-32x32.png" type="image/png" sizes = "any"/>
+        <link rel="icon2" href="/static/icons/favicon-32x32.png" type="image/png" sizes="any" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body>
-        <Nav page="Home" />
-        <div>
-          {children}
+        <div className="children-holder">
+        {children}
         </div>
         <Cursor />
+        <Footer />
       </body>
     </html>
   );

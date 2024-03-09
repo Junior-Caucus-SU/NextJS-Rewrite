@@ -1,9 +1,10 @@
-.cursor #cursor {
-    pointer-events: none;
-    position: fixed;
+.cursor {
+    /* pointer-events: none;
+    position: fixed; */
+    color: black;
 }
 
-.cursor #cursor-inner, #cursor-outer {
+.cursor-inner, .cursor-outer {
     position: absolute;
     border-radius: 50%;
     mix-blend-mode: difference;
@@ -11,18 +12,18 @@
     pointer-events: none;
 }
 
-.cursor #cursor-inner {
+.cursor-inner {
     transition: width 0.3s ease, height 0.3s ease;
     width: 5px;
     height: 5px;
-    background-color: var(--Pink, #fbe4df);
+    background-color: var(--Main-Blue, #fbe4df);
     transform: translate(-50%, -50%);
 }
 
-.cursor #cursor-outer {
+.cursor-outer {
     width: 30px;
     height: 30px;
-    border: 0.5px solid var(--Pink, #fbe4df);
+    border: 0.5px solid var(--Main-Blue, #fbe4df);
     transform: translate(-50%, -50%);
     transition: opacity 0.3s ease;
 }

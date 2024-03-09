@@ -23,13 +23,13 @@ export default async function Nav(props: NavProps) {
                     </p>
                 </div>
                 <div className={styles["banner-texture"]}>
-                    <Image src={LowerBannerTexture} alt="Texture" />
+                    <Image src={LowerBannerTexture} alt="Texture" priority={false} placeholder={"blur"}/>
                 </div>
             </div>
             <div className={styles["nav-container"]}>
                 <div className={styles["juni-log-container"]}>
                     <Link href="/" className={`${styles["junior-logo"]} ${styles["nav-menu-item"]}`} >
-                        <Image src={JuniorCaucusLogoSvg} alt="Junior Caucus Logo" />
+                        <Image src={JuniorCaucusLogoSvg} alt="Junior Caucus Logo" priority={true} />
                     </Link>
                 </div>
                 <div className={`${styles.menu} }`}>
@@ -45,7 +45,7 @@ export default async function Nav(props: NavProps) {
                     <Link href="/resources" className={currPageGet(props.page, "Resources")}>
                         {getText(props.page, "Resources")}
                     </Link>
-                    <Link href="/Socials" className={currPageGet(props.page, "Socials")} >
+                    <Link href="/socials" className={currPageGet(props.page, "Socials")} >
                         {getText(props.page, "Socials")}
                     </Link>
                 </div>
@@ -68,7 +68,7 @@ export default async function Nav(props: NavProps) {
                         <Link href="/resources" className={currPageGet(props.page, "Resources")}>
                          {getText(props.page, "Resources")}
                         </Link>
-                        <Link href="/Socials" >
+                        <Link href="/socials" >
                             <div className={currPageGet(props.page, "Socials")}>{getText(props.page, "Socials")}</div>
                         </Link>
                     </div>

@@ -15,14 +15,20 @@
   background: transparent;
 }
 
-
+html {
+  cursor: none;
+}
 
 body {
   font-family: var(--fonting);
   background-color: var(--background-color);
-  cursor: none;
+}
+
+.children-holder {
+  min-height: 90vh;
 }
 
 a, .interactable {
   cursor: none;
 }
+

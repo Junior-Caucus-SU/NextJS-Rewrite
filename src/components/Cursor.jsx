@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect, useRef } from 'react';
-import "./Cursor.css";
+import styles from "./Cursor.module.css";
 
 
 export default function Cursor() {
@@ -16,7 +16,7 @@ export default function Cursor() {
 
     useEffect(() => {
         const updateMousePosition = (e) => {
-            setMousePosition({ x: e.pageX, y: e.pageY });
+            setMousePosition({ x: e.pageX, y: e.pageY});
         };
 
         const addInteractableListeners = () => {
@@ -73,9 +73,9 @@ export default function Cursor() {
 
 
     return (
-        <div className="cursor">
-            <div ref={cInner} id="cursor-inner" />
-            <div ref={cOuter} id="cursor-outer" />
+        <div className={styles.cursor}>
+            <div ref={cInner} className={styles["cursor-inner"]} />
+            <div ref={cOuter} className={styles["cursor-outer"]} />
         </div>
     );
 }

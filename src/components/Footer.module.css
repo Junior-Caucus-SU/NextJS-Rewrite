@@ -1,0 +1,81 @@
+.footer-banner {
+    padding-top: 5vh;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+
+   }
+  
+  .footer-people{
+    gap: 10px;
+    display: flex;
+  }
+  
+  .icons-container{
+    gap: 10px;
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .positions-people {
+    width:20vw;
+  }
+  
+  .positions-title {
+    width:20vw;
+    opacity: 0.85;
+    text-align: right;
+  }
+  
+  .name-link {
+    text-decoration: none;
+    color: #0c2b56;
+  }
+  
+  .names {
+    color: #0c2b56;
+    font-size: 0.9em;
+    flex-direction: column;
+    font-family: "neue-haas-grotesk-text";
+  }
+  
+  @media (max-width: 450px) {
+    .names {
+      display:none;
+    }
+  }
+  
+  .leadership {
+    color: #0c2b56;
+    text-align: center;
+    font-size: 0.9em;
+    font-family: "neue-haas-grotesk-text";
+  }
+  
+  .school-logo-link {
+    text-decoration: none;
+  }
+  
+  .school {
+    padding-bottom: 40px;
+    display: inline-flex;
+    justify-content: space-between;
+    position: relative;
+  }
+  
+  .school-text {
+    top: 1px;
+    color: #0c2b56;
+    font-size: 14px;
+    font-family: "neue-haas-grotesk-text";
+    font-weight: 400;
+    line-height: 18px;
+    position: relative;
+  }
+  
+  .school-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
