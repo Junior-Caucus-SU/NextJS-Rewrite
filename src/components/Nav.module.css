@@ -1,0 +1,136 @@
+.navbar {
+  z-index: 1000000;
+}
+
+.nav-container {
+  display: flex;
+  height: 5vh;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+.decorative {
+  font-family: "scotch-display-comp-dingbats";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.menu {
+  list-style: none;
+  display: inline-flex;
+  width: 40vw;
+  justify-content: space-between;
+}
+
+@media (max-width: 940px) {
+  .menu {
+    width: 60vw;
+  }
+}
+.nav-menu-item {
+  /* text */
+  font-family: var(--font-family, "ivymode");
+  font-size: 1rem;
+  font-style: normal;
+  text-decoration: none;
+  color: var(--Main-Blue, #0c2b56);
+  font-weight: 500;
+  line-height: normal;
+  list-style: none;
+  width: auto;
+}
+.nav-menu-item:hover {
+  transform: scale(1.05);
+}
+.juni-logo-container {
+  display: flex;
+  align-items: center;
+}
+.junior-logo {
+  flex: 1;
+  display: flex;
+}
+.mobile-dropdown {
+  display: none;
+}
+
+@media (max-width: 795px) {
+  .menu {
+    display: none;
+  }
+  .mobile-dropdown {
+    display: inline-block;
+    z-index: 1000;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    z-index: 1000;
+  }
+
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+
+  /* Show the dropdown menu on hover */
+  .mobile-dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .mobile-dropdown:hover .drowpdown-content {
+    background-color: #3e8e41;
+  }
+
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  /* .movile-dropdown:active .dropbtn {
+      background-color: #3e8e41;
+    }  */
+
+  .show {
+    display: inline-block;
+  }
+}
+
+.banner {
+  background-color: var(--Main-Blue, #0c2b56);
+  height: 5vh;
+  width: 100vw;
+  text-align: center;
+  display: table;
+}
+
+.banner-text {
+  font-weight: 400;
+  padding-top: 1.7vh;
+  color: var(--Pink, #fae5e2);
+  font-family: "neue-haas-grotesk-text", sans-serif;
+  font-size: 1rem;
+}
+
+.banner-links {
+  color: var(--Pink, #fae5e2);
+}
+
+.banner-texture {
+  width: 100vw;
+  height: auto;
+  display: block;
+}
