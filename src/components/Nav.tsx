@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import styles from "./Nav.module.css"
+import styles from "@/styles/Nav.module.css"
 
 import LowerBannerTexture from "/public/static/images/LowerBannerTexture.png";
 import JuniorCaucusLogoSvg from "/public/static/images/JuniorCaucusLogo.svg";

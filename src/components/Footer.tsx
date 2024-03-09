@@ -1,4 +1,4 @@
-import styles from "./Footer.module.css";
+import styles from "@/styles/Footer.module.css";
 import Image from "next/image";
 import InstagramLogoSvg from "/public/static/images/instagram.svg";
 import FacebookLogoSvg from "/public/static/images/facebook.svg";

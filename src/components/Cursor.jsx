@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect, useRef } from 'react';
-import styles from "./Cursor.module.css";
+import styles from "@/styles/Cursor.module.css";
 
 
 export default function Cursor() {

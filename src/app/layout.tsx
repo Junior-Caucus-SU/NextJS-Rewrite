@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "@/styles/globals.css";
 import Cursor from "@/components/Cursor"
 import Footer from "@/components/Footer"
 
