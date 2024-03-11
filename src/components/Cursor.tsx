@@ -87,9 +87,6 @@ export default function Cursor() {
         }
     }, [isInteractableHovered]);
 
-    console.log(cInner);
-    console.log(cOuter);
-
     return (
         <div className={styles.cursor}>
             <div ref={cInner} className={styles["cursor-inner"]} />
