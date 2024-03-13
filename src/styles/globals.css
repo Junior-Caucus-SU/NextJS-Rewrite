@@ -33,3 +33,18 @@ a, .interactable {
   cursor: none;
 }
 
+.web-texture {
+  background-image: url("/static/images/Background.png");
+  background-repeat: repeat-y;
+  background-size: cover;
+  background-blend-mode: luminosity;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  height: 200vh;
+  position: fixed;
+  top: -15px;
+  left: -20px;
+  width: 105%;
+  z-index: 100000;
+  opacity: 50%;
+}

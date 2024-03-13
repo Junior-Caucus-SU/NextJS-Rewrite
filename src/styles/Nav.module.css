@@ -130,7 +130,7 @@
 }
 
 .banner-texture {
-  width: 100vw;
+  overflow: hidden;
   height: auto;
   display: block;
 }

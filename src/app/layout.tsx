@@ -46,6 +46,7 @@ export default function RootLayout({
         </div>
         <Cursor />
         <Footer />
+        <div className="web-texture" />
       </body>
     </html>
   );
