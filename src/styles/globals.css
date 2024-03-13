@@ -21,8 +21,9 @@ html {
 }
 
 body {
-  font-family: var(--fonting);
-  background-color: var(--background-color);
+  font-family: var(--fonting, "ivymode");
+  background-color: var(--background-color, #FAE5E2);
+  cursor: none;
 }
 
 .children-holder {
