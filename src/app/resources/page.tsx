@@ -10,20 +10,8 @@ export default async function Resources() {
     return (<div>
         <Nav page="Resources" />
         <div className={styles["resources-super"]}>
-            <Suspense fallback={<Loading />}>
                 <ResourceList />
-            </Suspense>
-        </div>
+         </div>
     </div>);
 }
 
-
-function Loading() {
-    return (
-        
-        <div>
-            Loading...
-            </div>
-    );
-
-}
