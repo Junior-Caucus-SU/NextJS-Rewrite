@@ -5,7 +5,7 @@ import "@/styles/Events.css";
 import AnnouncementLine from "/public/static/images/announcementsLine.svg";
 import Initatives from "@/components/Initatives";
 
-export default async function Events() {
+export default function Events() {
     return (<div>
         <div className="events-page">
             <Nav page="Events" />

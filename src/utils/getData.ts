@@ -1,12 +1,13 @@
 import Papa from "papaparse";
 
 const id = "1yB7zzw0I3hUjLwgKZXMpBioQ9FNkTg2bp3skTwtatHk";
+const revalidate = 3600;
 
-export async function getAnnouncementData() {
+export default async function getData(sheetName: string) {
   try {
-    const sheetName = "Announcements";
     const response = await fetch(
-      `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:csv&sheet=${sheetName}`
+      `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:csv&sheet=${sheetName}`,
+      { next: { revalidate: revalidate } }
     );
     const text = await response.text();
     const parsedData = Papa.parse(text, { header: true }).data.reverse();
@@ -14,19 +15,4 @@ export async function getAnnouncementData() {
   } catch (err) {
     console.log(err);
   }
-  return [];
-}
-
-export async function getData(sheetName: string) {
-  try {
-    const response = await fetch(
-      `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:csv&sheet=${sheetName}`
-    );
-    const text = await response.text();
-    const parsedData = Papa.parse(text, { header: true }).data.reverse();
-    return parsedData;
-  } catch (err) {
-    console.log(err);
-  }
-  return [];
 }

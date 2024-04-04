@@ -4,9 +4,8 @@ import Embeds from "@/components/Embeds";
 
 export default async function Socials() {
     return (<div>
-        <Nav page="Socials"/>
+        <Nav page="Socials" />
         <Embeds />
-   
     </div>)
 }
 

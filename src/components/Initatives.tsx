@@ -1,14 +1,21 @@
 "use client"
 import { useState, useEffect } from "react";
-import { getData } from "@/utils/getData";
+import getData from "@/utils/getData";
 import styles from "@/styles/Initatives.module.css";
 
+interface Initiative {
+    Date: string;
+    Title: string;
+    Text: string;
+}
+
 export default function Initatives() {
-    const [initiativesData, setEventsInfo] = useState<unknown[]>([]);
+    const [initiativesData, setEventsInfo] = useState<Initiative[]>([]);
     const [showMore, setShowMore] = useState<any[]>([]);
+
     useEffect(() => {
         const fetchData = async () => {
-            const parsedData = await getData("Announcements");
+            const parsedData = await getData("Announcements") as Initiative[];
             setEventsInfo(parsedData);
             setShowMore(Array(parsedData.length).fill(false));
         };
@@ -22,15 +29,11 @@ export default function Initatives() {
             return newShowMore;
         });
     };
-    let data = (
-        <div className={styles.frame}>
-        </div>
-    );
-    console.log(initiativesData);
-    if (initiativesData !== undefined) {
-        data = (
+
+    return (
+        <div className={styles["all-initiatives"]}>
             <div className={styles.frame}>
-                {initiativesData.map((initiative: any, index: number) => ( // use any becasue I'm lazy
+                {initiativesData.map((initiative: Initiative, index: number) => ( // use any becasue I'm lazy
                     <div className={styles.event} key={index}>
                         <p className={styles["event-date"]}>{initiative.Date}</p>
                         <h4 className={styles["event-title"]}>{initiative.Title}</h4>
@@ -49,12 +52,6 @@ export default function Initatives() {
                 ))}
 
             </div>
-        );
-    }
-
-    return (
-        <div className={styles["all-initiatives"]}>
-            {data}
         </div>
     );
 }

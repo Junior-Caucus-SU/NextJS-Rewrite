@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import  "@/styles/Embeds.css";
+import "@/styles/Embeds.css";
 
 const findscript = (url: string) => {
   const script = document.createElement("script");

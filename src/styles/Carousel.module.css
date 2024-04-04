@@ -1,59 +1,58 @@
 .carousel {
-    position: relative;
-    margin-top: 4vw;
-    height: 75vh;
-    left: 5vw;
-    margin-bottom: 4vw;
-    overflow-x:hidden;
-  }
-  
-  .current-item {
-    white-space: nowrap;
-    width: 91vw;
-    height: inherit;
-    transition: transform .8s;
-    position: relative;
-  }
-  
-  .image-one {
-    background: url("/static/images/CarouselImage1.png");
-    background-size: cover;
-    background-position: 50% 55%;
-    height: inherit;
-    margin-right: 1vw;
-    margin-bottom: 4vh;
-  }
-  
-  .carousel-image {
-    width: 90vw;
-    height: inherit;
-    margin-top: -1vw;
-  }
-  
-  .image-two {
-    position: relative;
-    background-image: url("/static/images/CarouselImage2.png");
-    background-size: cover;
-    background-position: 50% 50%;
-    object-fit: cover;
-    top: -77.3vh;
-    width: 90vw;
-    left: 91vw;
-    bottom: 114vh;
-  }
-  
-  .image-text {
-    position: absolute;
-    float: left;
-    left: 4vw;
-    bottom: 5vw;
-    color: var(--Pink, #fbe4df);
-    font-family: "ivymode";
-    font-size: 12vw;
-    font-style: normal;
-    font-weight: 350;
-    line-height: 85%;
-    user-select: none;
-    mix-blend-mode: hard-light;
-  }
-  
+  position: relative;
+  margin-top: 4vw;
+  height: 75vh;
+  left: 5vw;
+  margin-bottom: 4vw;
+  overflow-x: hidden;
+}
+
+.current-item {
+  white-space: nowrap;
+  width: 91vw;
+  height: inherit;
+  transition: transform 0.8s;
+  position: relative;
+}
+
+.image-one {
+  background: url("/static/images/CarouselImage1.png");
+  background-size: cover;
+  background-position: 50% 55%;
+  height: inherit;
+  margin-right: 1vw;
+  margin-bottom: 4vh;
+}
+
+.carousel-image {
+  width: 90vw;
+  height: inherit;
+  margin-top: -1vw;
+}
+
+.image-two {
+  position: relative;
+  background-image: url("/static/images/CarouselImage2.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  object-fit: cover;
+  top: -77.3vh;
+  width: 90vw;
+  left: 91vw;
+  bottom: 114vh;
+}
+
+.image-text {
+  position: absolute;
+  float: left;
+  left: 4vw;
+  bottom: 5vw;
+  color: var(--Pink, #fbe4df);
+  font-family: "ivymode";
+  font-size: 12vw;
+  font-style: normal;
+  font-weight: 350;
+  line-height: 85%;
+  user-select: none;
+  mix-blend-mode: hard-light;
+}

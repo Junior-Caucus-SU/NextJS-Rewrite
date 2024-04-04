@@ -1,9 +1,19 @@
 import Image from "next/image";
-import styles from "/page.module.css";
-import Nav from "@/components/Nav"
-export const revalidate = 10;
+import "@/styles/Home.css";
+import Nav from "@/components/Nav";
+import getData from "@/utils/getData";
 
-export default function Home() {
+export const revalidate = 3600;
+
+interface Day_Schedule {
+  Date: string;
+  DayType: string;
+  Schedule: string;
+}
+
+export default async function Home() {
+  let data = await getData("Schedule") as Day_Schedule[];
+
   return (
     <div>
       <Nav page="Home" />

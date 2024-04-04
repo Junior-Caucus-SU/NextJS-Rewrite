@@ -1,7 +1,7 @@
 import Nav from "@/components/Nav"
 import Gallery from "@/components/Gallery";
 
-export default async function People() {
+export default function People() {
     return (<div>
         <Nav page="People" />
         <Gallery />
