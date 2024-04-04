@@ -1,6 +1,6 @@
 
 import Nav from "@/components/Nav"
-import { Suspense, lazy } from "react";
+import { lazy } from "react";
 import styles from "@/styles/Resources.module.css"
 
 const ResourceList = lazy(() => import("@/components/ResourceList"));

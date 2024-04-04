@@ -1,29 +1,19 @@
 "use client"
 import { useState, useEffect } from "react";
+import { getData } from "@/utils/getData";
 import styles from "@/styles/Initatives.module.css";
-import Papa from "papaparse";
 
 export default function Initatives() {
-    const [initiativesData, setEventsInfo] = useState<unknown[] | undefined>([]);
+    const [initiativesData, setEventsInfo] = useState<unknown[]>([]);
     const [showMore, setShowMore] = useState<any[]>([]);
     useEffect(() => {
-        const fetchSheetsData = async () => {
-          try {
-            const ID = "1yB7zzw0I3hUjLwgKZXMpBioQ9FNkTg2bp3skTwtatHk";
-            const sheet_name = "Announcements";
-            const response = await fetch(
-              `https://docs.google.com/spreadsheets/d/${ID}/gviz/tq?tqx=out:csv&sheet=${sheet_name}`,
-            );
-            const text = await response.text();
-            const parsedData = Papa.parse(text, { header: true }).data.reverse();
+        const fetchData = async () => {
+            const parsedData = await getData("Announcements");
             setEventsInfo(parsedData);
             setShowMore(Array(parsedData.length).fill(false));
-          } catch (err) {
-            console.log(err);
-          }
         };
-        fetchSheetsData();
-      }, []);
+        fetchData();
+    }, []);
 
     const handleShowMoreToggle = (index: number) => {
         setShowMore((prevShowMore) => {
