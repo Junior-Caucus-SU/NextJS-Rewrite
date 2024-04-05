@@ -1,0 +1,176 @@
+.schedule-banner {
+    display: flex;
+    padding-top:3vw;
+    flex-direction: column;
+    align-items: flex-start;
+    background-size: cover;
+    color: #004085;
+  }
+  
+  .hide {
+    display: none !important;
+  }
+  
+  .schedule-fill {
+    height: 500px;
+    width: 100%;
+    background-color: #004085;
+  }
+  
+  .weekly-schedule {
+    display: flex;
+    width: 12rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    font-family: "neue-haas-grotesk-text", sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+  
+  .date-circle {
+    width: 65px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.8px solid #004085;
+  }
+  
+  .day-abbreviation {
+    text-align: center;
+    font-size: 16px;
+  }
+  
+  .day-schedule {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .top-row {
+    font-size: 1.3rem;
+    font-weight: 450;
+    margin: 0.5rem 0;
+    font-family: "neue-haas-grotesk-display", sans-serif;
+    margin-bottom: 30px;
+  }
+  
+  .schedule-type {
+    padding-left: 10px;
+    width: 50vw;
+  }
+  
+  .bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .large-schedule-text {
+    /* ! this is just a stopgap */
+  }
+  
+  .time-circle {
+    position: relative;
+    border-radius: 50%;
+    border: 7px solid #0040856c;
+    width: 115px;
+    height: 115px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+  }
+  
+  .progress-ring {
+    position: absolute;
+    transform-origin: center;
+  }
+  
+  .timer {
+    text-align: center;
+    position: relative;
+    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-size: 2.3rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+  }
+  
+  .date {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .time-period {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: "ivymode", serif;
+  }
+  
+  .time {
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+  }
+  
+  .period-container {
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+    height: 9rem;
+    line-height: 1;
+  }
+  
+  /* ! why are all the period unscalable now??? */
+  .period {
+    font-size: 9.1rem;
+    font-style: normal;
+    font-weight: 300;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    transition: all 500ms cubic-bezier(0.85, 0, 0.15, 1);
+  }
+  
+  .period.dupe {
+    font-family: 'neue-haas-grotesk-display', sans-serif;
+    transform: translateY(100%);
+    font-size: 9.5rem;
+  }
+  
+  .period-container:hover .period {
+    transform: translateY(calc(-100% - 9rem));
+  }
+  
+  .period-container:hover .period.dupe {
+    transform: translateY(-55%);
+  }
+  
+  @media (max-width: 800px) {
+    .period {
+      font-size: 6rem;
+    }
+  
+    .period.dupe {
+      font-size:6.5rem;
+    }
+  }
+  
+  @media (max-width: 560px) {
+    .period {
+      font-size: 4rem;
+    }
+  
+    .period.dupe {
+      font-size: 6.5rem;
+    }
+  }
+  

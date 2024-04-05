@@ -1,26 +1,24 @@
 import getDayInfo from "./getDayInfo";
+import getTimes from "./getTimes";
 
-const getPeriodTimes = (DayType: string) => {
-  const info = getDayInfo(DayType);
-  let final = [];
-  for (let i = 0; i < info.length; i++) {
-    if (!(info[i].name.includes("Before") && i !== 0)) {
-      if (i === 0) {
-        final.push(`Before ${info[i + 1].startTime}`);
-      } else if (i === info.length - 1) {
-        final.push(`After ${info[i].startTime}`);
-      } else {
-        const start = info[i].startTime;
-        const end = new Date();
-        end.setHours(parseInt(start.split(":")[0]));
-        end.setMinutes(parseInt(start.split(":")[1]) + info[i].duration);
-        final.push(
-          `${start} - ${end.getHours()}:${
-            end.getMinutes() < 10 ? "0" + end.getMinutes() : end.getMinutes()
-          }`
-        );
-      }
+export default function getPeriodTimes(dayType: string) {
+  const now = new Date();
+  now.setHours(now.getHours());
+  now.setMinutes(now.getMinutes());
+  const schedule = getDayInfo(dayType);
+  const periods = getTimes(schedule);
+  for (let i = 0; i < periods.length; i++) {
+    const start = new Date();
+    start.setHours(parseInt(schedule.schedule[i].startTime.split(":")[0]));
+    start.setMinutes(parseInt(schedule.schedule[i].startTime.split(":")[1]));
+    const diff = now.getTime() - start.getTime();
+    if (diff > 0) {
+      let minutes = schedule.schedule[i].duration - diff / 60000;
+      let period = periods[i];
+      let periodDuration = schedule.schedule[i].duration;
+      return { period, minutes, periodDuration };
+    } else {
+      return { period: "Before School", minutes: 0, periodDuration: 0 };
     }
   }
-  return final;
-};
+}
