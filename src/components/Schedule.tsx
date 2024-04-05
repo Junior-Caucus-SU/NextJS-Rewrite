@@ -3,10 +3,24 @@ import { useMemo, useEffect, useState } from 'react';
 import styles from "@/styles/Schedule.module.css";
 import DayScheduleInterface from '@/utils/DayScheduleInterface';
 import dateFormat from '@/utils/Dateformat';
-
+import getPeriodTimes from '@/utils/getPeriodTimes';
 
 export default function Schedule(props: DayScheduleInterface[]) {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
+  const [minutes, setMinutes] = useState(0);
+  const [period, cangePeriod] = useState("Before School");
+  const [periodDuration, setPeriodDuration] = useState(0);
+  const [minutesLeft, setMinutesLeft] = useState(40);
+
+  useEffect(() => {
+    setInterval(() => {
+      const data = getPeriodTimes(props[currentDateTime.getDay()].dayType);
+      cangePeriod(data.period);
+      setMinutes(minutes);
+      setPeriodDuration(periodDuration);
+    }, 1000)
+  }, [minutes, period, currentDateTime, props, periodDuration])
+
   useEffect(() => {
     const timer = setInterval(() => setCurrentDateTime(new Date()), 1000);
     return () => clearInterval(timer);
@@ -27,9 +41,9 @@ export default function Schedule(props: DayScheduleInterface[]) {
   );
 
   const circumference = 2 * Math.PI * 50;
-  const progress = isWeekend ? 0 : props.minutes / (props.periodDuration || 1);
+  const progress = isWeekend ? 0 : minutes / (periodDuration || 1);
   const strokeDashoffset = circumference * (1 - progress);
-  const text = isWeekend ? "Weekend" : `${props.dayType} ${props.AorBDay}`;
+  const text = isWeekend ? "Weekend" : `${props[currentDateTime.getDay()].dayType} ${props[currentDateTime.getDay()].AorBDay}`;
 
   return (
     <div className="schedule-banner">
@@ -55,22 +69,22 @@ export default function Schedule(props: DayScheduleInterface[]) {
             {isWeekend ? (
               "0/0"
             ) : (
-              <React.Fragment>
-                {Math.round(props.minutes)}
+              <>
+                {Math.round(minutes)}
                 <br />
-                {Math.round(props.minutesLeft)}
-              </React.Fragment>
+                {Math.round(minutesLeft)}
+              </>
             )}
           </span>
         </div>
-        <div className="time-period">
-          <span className="time">{timeString}</span>
-          <div className="period-container">
-            <span className="period interactable">
-              {isWeekend ? "No School" : props.currPeriod}
+        <div className={styles["time-period"]}>
+          <span className={styles.time}>{timeString}</span>
+          <div className={styles["period-container"]}>
+            <span className={`${styles.period} ${styles.interactable}`}>
+              {isWeekend ? "No School" : period}
             </span>
             <span
-              className={`period dupe interactable ${text.length > 10 ? "large-schedule-text" : ""
+              className={`${styles.period} ${styles.dupe} ${styles.interactable} ${text.length > 10 ? styles["large-schedule-text"] : ""
                 }`}
             >
               {text}

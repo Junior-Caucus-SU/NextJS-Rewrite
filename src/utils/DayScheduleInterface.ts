@@ -1,5 +1,5 @@
 export default interface DayScheduleInterface {
     Date: string;
-    DayType: string; 
-    Schedule: string;
+    dayType: string; 
+    AorBDay: string;
 }

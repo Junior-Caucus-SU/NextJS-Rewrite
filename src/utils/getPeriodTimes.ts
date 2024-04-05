@@ -16,9 +16,11 @@ export default function getPeriodTimes(dayType: string) {
       let minutes = schedule.schedule[i].duration - diff / 60000;
       let period = periods[i];
       let periodDuration = schedule.schedule[i].duration;
-      return { period, minutes, periodDuration };
+      let minutesLeft = schedule.schedule[i].duration - diff / 60000;
+      return { period, minutes, periodDuration, minutesLeft };
     } else {
-      return { period: "Before School", minutes: 0, periodDuration: 0 };
+      break;
     }
   }
+  return { period: "Before School", minutes: 0, periodDuration: 0, minutesLeft: 0};
 }
