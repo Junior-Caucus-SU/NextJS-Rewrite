@@ -16,7 +16,7 @@
 }
 
 .image-one {
-  background: url("/static/images/CarouselImage1.png");
+  background: url("/static/images/CarouselImage1.avif");
   background-size: cover;
   background-position: 50% 55%;
   height: inherit;
@@ -32,7 +32,7 @@
 
 .image-two {
   position: relative;
-  background-image: url("/static/images/CarouselImage2.png");
+  background-image: url("/static/images/CarouselImage2.avif");
   background-size: cover;
   background-position: 50% 50%;
   object-fit: cover;

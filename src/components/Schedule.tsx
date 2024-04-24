@@ -18,6 +18,9 @@ export default function ScheduleBanner(props: SchedulePropsInterface) {
   const [dateString, setDateString] = useState("");
   const [timeCircleClassName, setTimeCircleClassName] = useState("");
   const [isWeekend, setIsWeekend] = useState(false);
+  const [frontNameText, setFrontNameText] = useState("After School");
+  const [backNameText, setBackNameText] = useState("No School");
+
 
 
   useEffect(() => {
@@ -45,7 +48,12 @@ export default function ScheduleBanner(props: SchedulePropsInterface) {
   const circumference = 2 * Math.PI * 50;
   const progress = isWeekend ? 0 : props.minutes / (props.periodDuration || 1);
   const strokeDashoffset = circumference * (1 - progress);
-  const text = isWeekend ? "Weekend" : `${props.dayType} ${props.AorBDay}`;
+
+  useEffect(() => {
+    setFrontNameText(isWeekend ? "No School" : String(props.currPeriod))
+    setBackNameText(isWeekend ? "Weekend" : `${props.dayType} ${props.AorBDay}`)
+  }, [isWeekend, props.currPeriod, props.dayType, props.AorBDay])
+
 
   return (
     <div className="schedule-banner">
@@ -83,13 +91,13 @@ export default function ScheduleBanner(props: SchedulePropsInterface) {
           <span className="time">{timeString}</span>
           <div className="period-container">
             <span className="period interactable">
-              {isWeekend ? "No School" : String(props.currPeriod)}
+              {frontNameText}
             </span>
+            {/* ${Number(backNameText.length) > 10 ? "large-schedule-text" : ""} */}
             <span
-              className={`period dupe interactable ${Number(text.length) > 10 ? "large-schedule-text" : ""
-                }`}
+              className={`period dupe interactable large-scedule-text`}
             >
-              {text}
+              {backNameText}
             </span>
           </div>
         </div>

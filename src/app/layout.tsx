@@ -31,7 +31,7 @@ export default function RootLayout({
         <title>Junior Caucus</title>
 
         <link rel="icon" href="/static/icons/favicon.ico" sizes="any" />
-        <link rel="stylesheet" href="https://use.typekit.net/zfd0jrc.css" />
+        <link rel="preconnect stylesheet" href="https://use.typekit.net/zfd0jrc.css" />
         <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon.png" type="image/png" sizes="any" />
         <link rel="icon2" href="/static/icons/favicon-32x32.png" type="image/png" sizes="any" />
         <link rel="manifest" href="/site.webmanifest" />

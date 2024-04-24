@@ -35,7 +35,7 @@ a, .interactable {
 }
 
 .web-texture {
-  background-image: url("/static/images/Background.png");
+  background-image: url("/static/images/Background.avif");
   background-repeat: repeat-y;
   background-size: cover;
   background-blend-mode: luminosity;

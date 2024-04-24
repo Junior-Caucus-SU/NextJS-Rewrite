@@ -184,7 +184,7 @@
 }
 
 .polaroids-sky {
-  background: url("/static/images/PolaroidsSky.png") no-repeat;
+  background: url("/static/images/PolaroidsSky.avif") no-repeat;
   background-size: 100%;
   background-attachment: fixed;
   z-index: 3;
@@ -196,7 +196,7 @@
 }
 
 .polaroids-bottom {
-  background: url("/static/images/polaroidsGround.png") no-repeat;
+  background: url("/static/images/polaroidsGround.avif") no-repeat;
   background-size: 100%;
   background-attachment: fixed;
   z-index: 7;

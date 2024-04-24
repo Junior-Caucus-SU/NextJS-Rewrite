@@ -14,7 +14,7 @@ import Schedule from "@/components/Schedule";
 
 //images
 import Border from "/public/static/images/BorderImg.svg";
-import TribecaBridge from "/public/static/images/StuyBridgeDrawing.png";
+import TribecaBridge from "/public/static/images/StuyBridgeDrawing.webp";
 import Sun from "/public/static/images/sun.svg";
 import Moon from "/public/static/images/moon.svg";
 import SpecificsLine from "/public/static/images/SpecificsLineArt.svg";
@@ -219,6 +219,8 @@ export default function HomePage() {
                             src={TribecaBridge}
                             alt="Tribeca bridge"
                             className="tribeca-bridge"
+                            sizes="40vw"
+                            priority={false}
                         />
                     </div>
                     <div className="date-crawler-pos">

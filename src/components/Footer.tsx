@@ -2,7 +2,7 @@ import styles from "@/styles/Footer.module.css";
 import Image from "next/image";
 import InstagramLogoSvg from "/public/static/images/instagram.svg";
 import FacebookLogoSvg from "/public/static/images/facebook.svg";
-import StuyvesantHSLogoPng from "/public/static/images/stuyvesant.png";
+import StuyvesantHSLogoPng from "/public/static/images/stuyvesant.webp";
 
 export default function Footer() {
     return (

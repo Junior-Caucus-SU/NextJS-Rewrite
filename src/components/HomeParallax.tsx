@@ -1,10 +1,10 @@
 'use client'
 import "@/styles/HomeParallax.css";
-import Homecoming from "/public/static/images/homecoming.png";
-import GloriousLeaders from "/public/static/images/gloriousLeaders.png";
-import ParallaxBackground from "/public/static/images/parallaxBackgound.png";
-import Battle from "/public/static/images/battle.png";
-import PhotoCapture from "/public/static/images/photoCapture.png";
+import Homecoming from "/public/static/images/homecoming.webp";
+import GloriousLeaders from "/public/static/images/gloriousLeaders.webp";
+import ParallaxBackground from "/public/static/images/parallaxBackgound.webp";
+import Battle from "/public/static/images/battle.webp";
+import PhotoCapture from "/public/static/images/photoCapture.webp";
 import Image from "next/image";
 
 import {
