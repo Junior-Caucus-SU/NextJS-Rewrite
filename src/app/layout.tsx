@@ -3,12 +3,6 @@ import "@/styles/globals.css";
 import Cursor from "@/components/Cursor"
 import Footer from "@/components/Footer"
 
-type IconsURLs = {
-  icon: string;
-  shortcut: string;
-  apple: string;
-}
-
 export const metadata: Metadata = {
   title: "Junior Caucus Website",
   description: `jcDescription`,

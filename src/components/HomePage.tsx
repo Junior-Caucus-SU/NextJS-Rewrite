@@ -37,39 +37,22 @@ function cSpanning(text: string) {
 
 export default function HomePage() {
     const [minutes, setMinutes] = useState(5); //should be used for the schedule page
-    const [currPeriod, setPeriod] = useState(0);
+    const [currPeriod, setPeriod] = useState("");
     const [dayType, setDayType] = useState("Regular");
     const [periodDuration, setPeriodDuration] = useState(40);
     const [minutesLeft, setMinutesLeft] = useState(0);
     const [AorBDay, setAorBDay] = useState("A");
-
+    const [periodTimes, setPeriodTimes] = useState<string[]>([])
+    const scRef = useRef<HTMLElement | null>(null);
     // Initialize end time with a fixed time for server-side rendering
     // const [end, setEnd] = useState(new Date('2022-01-01T00:00:00'));
 
     //fetch the sheets data
 
-    const getCurrentPeriod = useCallback(() => {
-        const now = new Date();
-        now.setHours(now.getHours());
-        now.setMinutes(now.getMinutes());
-        const schedule = getDayInfo(dayType);
-        const periods = getTimes(schedule);
-        for (let i = 0; i < periods.length; i++) {
-            const start = new Date();
-            start.setHours(parseInt(schedule[i].startTime.split(":")[0]));
-            start.setMinutes(parseInt(schedule[i].startTime.split(":")[1]));
-            start.setSeconds(0);
-            const diff = now.getTime() - start.getTime();
-            if (diff > 0) {
-                setMinutes(diff / 60000);
-                setMinutesLeft(schedule[i].duration - diff / 60000);
-                setPeriod(Number(periods[i]));
-                setPeriodDuration(schedule[i].duration);
-            } else {
-                break;
-            }
-        }
-    }, [dayType, setMinutes, setMinutesLeft, setPeriod, setPeriodDuration]);
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        updateCharacterOpacity();
+    }, [])
 
     const onScroll = () => {
         if (scRef.current) {
@@ -115,6 +98,30 @@ export default function HomePage() {
         fetchSheetsData();
     }, []);
 
+    const getCurrentPeriod = useCallback(() => {
+        const now = new Date();
+        now.setHours(now.getHours());
+        now.setMinutes(now.getMinutes());
+        const schedule = getDayInfo(dayType);
+        const periods = getTimes(schedule);
+        for (let i = 0; i < periods.length; i++) {
+            const start = new Date();
+            start.setHours(parseInt(schedule[i].startTime.split(":")[0]));
+            start.setMinutes(parseInt(schedule[i].startTime.split(":")[1]));
+            start.setSeconds(0);
+            const diff = now.getTime() - start.getTime();
+            if (diff > 0) {
+                setMinutes(diff / 60000);
+                setMinutesLeft(schedule[i].duration - diff / 60000);
+                setPeriod(String(periods[i]));
+                setPeriodDuration(schedule[i].duration);
+            } else {
+                break;
+            }
+        }
+    }, [dayType, setMinutes, setMinutesLeft, setPeriod, setPeriodDuration]);
+
+
     //get period
     // Before
     useEffect(() => {
@@ -129,7 +136,6 @@ export default function HomePage() {
     useEffect(() => {
         // Don't run this effect on the server
         if (typeof window === 'undefined') return;
-
         //set an interval
         const timer = setInterval(() => {
             getCurrentPeriod();
@@ -137,7 +143,6 @@ export default function HomePage() {
         return () => clearInterval(timer);
     }, [getCurrentPeriod]);
 
-    const scRef = useRef<HTMLElement | null>(null);
     useEffect(() => {
         window.addEventListener("scroll", onScroll);
         if (
@@ -186,7 +191,9 @@ export default function HomePage() {
         }
     }, []);
 
-
+    useEffect(() => {
+        setPeriodTimes(getPeriodTimes(dayType))
+    }, [dayType])
 
     const dayInfo = {
         dayType,
@@ -197,7 +204,6 @@ export default function HomePage() {
         AorBDay,
     };
 
-    const periodTimes = getPeriodTimes(dayType);
     return (
         <>
             <div className="homepage-div">
@@ -228,7 +234,7 @@ export default function HomePage() {
                             return (
                                 <div className="period-crawler-container" key={index}>
                                     <div className="period-name">
-                                        {Number(period) === Number(currPeriod) ? (
+                                        {String(period) === String(currPeriod) ? (
                                             <div className="period-name-crawler">
                                                 <span className="decorative">b</span>
                                                 {period}
@@ -326,7 +332,7 @@ function getDayInfo(DayType: string): ScheduleItemInterface[] {
     }
 };
 
-const getPeriodTimes = (DayType: string) => {
+function getPeriodTimes(DayType: string): string[] {
     const info = getDayInfo(DayType);
     let final = [];
     for (let i = 0; i < info.length; i++) {
@@ -362,10 +368,8 @@ const updateCharacterOpacity = () => {
         (char as HTMLElement).style.opacity = String(opacity);
     });
 };
+
 const handleScroll = () => {
     window.requestAnimationFrame(updateCharacterOpacity);
 };
 
-// ! TODO
-// window.addEventListener("scroll", handleScroll);
-// updateCharacterOpacity();

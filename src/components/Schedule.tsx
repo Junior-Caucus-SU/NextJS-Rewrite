@@ -7,34 +7,40 @@ interface SchedulePropsInterface {
   dayType: string,
   minutes: number,
   minutesLeft: number,
-  currPeriod: number,
+  currPeriod: string,
   periodDuration: number,
   AorBDay: string,
-
 }
 
 export default function ScheduleBanner(props: SchedulePropsInterface) {
+  const [timeString, setTimeString] = useState("");
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
+  const [dateString, setDateString] = useState("");
+  const [timeCircleClassName, setTimeCircleClassName] = useState("");
+  const [isWeekend, setIsWeekend] = useState(false);
+
 
   useEffect(() => {
     // Update currentDateTime on client-side after component has been mounted
-    const timer = setInterval(() => setCurrentDateTime(new Date()), 1000);
+    const timer = setInterval(() => {
+      setCurrentDateTime(new Date());
+    },
+      1000);
     return () => clearInterval(timer);
   }, []);
 
-  const isWeekend = useMemo(
-    () => currentDateTime.getDay() === 0 || currentDateTime.getDay() === 6,
-    [currentDateTime],
-  );
-  const timeCircleClassName = isWeekend ? "time-circle hide" : "time-circle";
-  const timeString = currentDateTime.toLocaleTimeString(
-    "en-US",
-    dateFormat.timeHMS,
-  );
-  const dateString = currentDateTime.toLocaleDateString(
-    "en-US",
-    dateFormat.longWK,
-  );
+  useEffect(() => {
+    setTimeString(currentDateTime.toLocaleTimeString(
+      "en-US",
+      dateFormat.timeHMS,
+    ));
+    setDateString(currentDateTime.toLocaleDateString(
+      "en-US",
+      dateFormat.longWK,
+    ))
+    setIsWeekend(currentDateTime.getDay() === 0 || currentDateTime.getDay() === 6)
+    setTimeCircleClassName(isWeekend ? "time-circle hide" : "time-circle");
+  }, [currentDateTime, isWeekend])
 
   const circumference = 2 * Math.PI * 50;
   const progress = isWeekend ? 0 : props.minutes / (props.periodDuration || 1);
@@ -66,9 +72,9 @@ export default function ScheduleBanner(props: SchedulePropsInterface) {
               "0/0"
             ) : (
               <React.Fragment>
-                {Math.round(props.minutes)}
+                {Math.round(Number(props.minutes))}
                 <br />
-                {Math.round(props.minutesLeft)}
+                {Math.round(Number(props.minutesLeft))}
               </React.Fragment>
             )}
           </span>
@@ -77,10 +83,10 @@ export default function ScheduleBanner(props: SchedulePropsInterface) {
           <span className="time">{timeString}</span>
           <div className="period-container">
             <span className="period interactable">
-              {isWeekend ? "No School" : props.currPeriod}
+              {isWeekend ? "No School" : String(props.currPeriod)}
             </span>
             <span
-              className={`period dupe interactable ${text.length > 10 ? "large-schedule-text" : ""
+              className={`period dupe interactable ${Number(text.length) > 10 ? "large-schedule-text" : ""
                 }`}
             >
               {text}
