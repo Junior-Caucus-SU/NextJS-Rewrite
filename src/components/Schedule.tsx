@@ -13,13 +13,13 @@ interface SchedulePropsInterface {
 }
 
 export default function ScheduleBanner(props: SchedulePropsInterface) {
-  const [timeString, setTimeString] = useState("");
+  const [timeString, setTimeString] = useState("Loading");
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
-  const [dateString, setDateString] = useState("");
-  const [timeCircleClassName, setTimeCircleClassName] = useState("");
+  const [dateString, setDateString] = useState("Loading...");
+  const [timeCircleClassName, setTimeCircleClassName] = useState("time-circle");
   const [isWeekend, setIsWeekend] = useState(false);
-  const [frontNameText, setFrontNameText] = useState("After School");
-  const [backNameText, setBackNameText] = useState("No School");
+  const [frontNameText, setFrontNameText] = useState("Loading...");
+  const [backNameText, setBackNameText] = useState("Loading...");
 
 
 
@@ -50,9 +50,9 @@ export default function ScheduleBanner(props: SchedulePropsInterface) {
   const strokeDashoffset = circumference * (1 - progress);
 
   useEffect(() => {
-    setFrontNameText(isWeekend ? "No School" : String(props.currPeriod))
+    setFrontNameText(isWeekend ? "No School" : String(props.currPeriod).trim().length != 0? String(props.currPeriod): frontNameText)
     setBackNameText(isWeekend ? "Weekend" : `${props.dayType} ${props.AorBDay}`)
-  }, [isWeekend, props.currPeriod, props.dayType, props.AorBDay])
+  }, [isWeekend, props.currPeriod, props.dayType, props.AorBDay, frontNameText])
 
 
   return (

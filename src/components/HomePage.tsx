@@ -220,7 +220,7 @@ export default function HomePage() {
                             alt="Tribeca bridge"
                             className="tribeca-bridge"
                             sizes="40vw"
-                            priority={false}
+                            priority={true}
                         />
                     </div>
                     <div className="date-crawler-pos">
