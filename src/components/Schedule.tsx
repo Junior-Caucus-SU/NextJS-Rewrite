@@ -1,21 +1,23 @@
 "use client"
 import React, { useState, useMemo, useEffect } from "react";
-import "./Schedule.css";
+import "@/styles/Schedule.css";
+import dateFormat from '@/utils/Dateformat';
 
-const dateFormat = {
-  longWK: { weekday: "long", month: "long", day: "numeric" },
-  shortWK: { weekday: "short" },
-  timeHMS: {
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: false,
-  },
-};
+interface SchedulePropsInterface {
+  dayType: string,
+  minutes: number,
+  minutesLeft: number,
+  currPeriod: number,
+  periodDuration: number,
+  AorBDay: string,
 
-export default function ScheduleBanner(props) {
+}
+
+export default function ScheduleBanner(props: SchedulePropsInterface) {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
+
   useEffect(() => {
+    // Update currentDateTime on client-side after component has been mounted
     const timer = setInterval(() => setCurrentDateTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
@@ -78,9 +80,8 @@ export default function ScheduleBanner(props) {
               {isWeekend ? "No School" : props.currPeriod}
             </span>
             <span
-              className={`period dupe interactable ${
-                text.length > 10 ? "large-schedule-text" : ""
-              }`}
+              className={`period dupe interactable ${text.length > 10 ? "large-schedule-text" : ""
+                }`}
             >
               {text}
             </span>

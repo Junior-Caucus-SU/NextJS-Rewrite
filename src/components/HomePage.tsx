@@ -1,11 +1,9 @@
 "use client"
-
 // stylesheets
-import "./Home.css";
+import "@/styles/home.css";
 
 // libraries
-import React, { useState, useEffect, useRef } from "react";
-import Papa from "papaparse";
+import { MutableRefObject, useState, useEffect, useRef, useCallback } from 'react'; import Papa from "papaparse";
 import Image from "next/image"
 
 // components 
@@ -25,7 +23,6 @@ import SpecificsLine from "/public/static/images/SpecificsLineArt.svg";
 import Data from "../../public/schedules.json";
 
 //utils
-import ScheduleInterface from "@/utils/SchedulesInterface";
 import DayScheduleInterface from "@/utils/DayScheduleInterface";
 import { ScheduleItemInterface } from "@/utils/SchedulesInterface";
 
@@ -45,9 +42,13 @@ export default function HomePage() {
     const [periodDuration, setPeriodDuration] = useState(40);
     const [minutesLeft, setMinutesLeft] = useState(0);
     const [AorBDay, setAorBDay] = useState("A");
+
+    // Initialize end time with a fixed time for server-side rendering
+    // const [end, setEnd] = useState(new Date('2022-01-01T00:00:00'));
+
     //fetch the sheets data
 
-    const getCurrentPeriod = () => {
+    const getCurrentPeriod = useCallback(() => {
         const now = new Date();
         now.setHours(now.getHours());
         now.setMinutes(now.getMinutes());
@@ -57,6 +58,7 @@ export default function HomePage() {
             const start = new Date();
             start.setHours(parseInt(schedule[i].startTime.split(":")[0]));
             start.setMinutes(parseInt(schedule[i].startTime.split(":")[1]));
+            start.setSeconds(0);
             const diff = now.getTime() - start.getTime();
             if (diff > 0) {
                 setMinutes(diff / 60000);
@@ -67,7 +69,7 @@ export default function HomePage() {
                 break;
             }
         }
-    };
+    }, [dayType, setMinutes, setMinutesLeft, setPeriod, setPeriodDuration]);
 
     const onScroll = () => {
         if (scRef.current) {
@@ -114,6 +116,7 @@ export default function HomePage() {
     }, []);
 
     //get period
+    // Before
     useEffect(() => {
         //set an interval
         const timer = setInterval(() => {
@@ -121,6 +124,18 @@ export default function HomePage() {
         }, 1000);
         return () => clearInterval(timer);
     });
+
+    // After
+    useEffect(() => {
+        // Don't run this effect on the server
+        if (typeof window === 'undefined') return;
+
+        //set an interval
+        const timer = setInterval(() => {
+            getCurrentPeriod();
+        }, 1000);
+        return () => clearInterval(timer);
+    }, [getCurrentPeriod]);
 
     const scRef = useRef<HTMLElement | null>(null);
     useEffect(() => {
@@ -185,12 +200,12 @@ export default function HomePage() {
     const periodTimes = getPeriodTimes(dayType);
     return (
         <>
-  
             <div className="homepage-div">
+
                 <div className="homepage-schedule-container">
                     <div className="schedule-banner-container">
                         <div className="schedule-banner">
-                        <Schedule {...dayInfo} />
+                            <Schedule {...dayInfo} />
                         </div>
                     </div>
                     <div className="bridge-pos">
@@ -202,11 +217,11 @@ export default function HomePage() {
                     </div>
                     <div className="date-crawler-pos">
                         <div className="schedule-date-crawler">
-                        <DateCrawler  />
+                            <DateCrawler />
                         </div>
                     </div>
                 </div>
-                <Image src={Border} alt="Border" className="border1" ref={scRef} />
+                <Image src={Border} alt="Border" className="border1" ref={scRef as MutableRefObject<HTMLImageElement | null>} />
                 <div className="schedule-specifics">
                     <div className="schedule-specifics-box">
                         {getPeriods(getDayInfo(dayType)).map((period, index) => {
@@ -263,7 +278,7 @@ export default function HomePage() {
                 <div className="end-scroll">
                     <div className="polaroids-sky polaroids polaroid-img"></div>
                     <div className="polaroids-text polaroids polaroid-img">
-                        We'll stay with you this year
+                        We&apos;ll stay with you this year
                     </div>
                     <div className="polaroids-bottom polaroids"></div>
                 </div>
@@ -294,7 +309,7 @@ const getPeriods = (schedule: ScheduleItemInterface[]) => {
 };
 
 
-function getDayInfo (DayType: string): ScheduleItemInterface[] {
+function getDayInfo(DayType: string): ScheduleItemInterface[] {
     switch (DayType) {
         case "Conference":
             return Data.Conference.schedule;
@@ -344,12 +359,13 @@ const updateCharacterOpacity = () => {
         const charCenter = charRect.top + charRect.height / 2;
         const distanceFromCenter = Math.abs(viewportHeight / 2 - charCenter);
         const opacity = Math.max(0, 1 - (2 * distanceFromCenter) / viewportHeight);
-        char.style.opacity = opacity;
+        (char as HTMLElement).style.opacity = String(opacity);
     });
 };
 const handleScroll = () => {
     window.requestAnimationFrame(updateCharacterOpacity);
 };
 
-window.addEventListener("scroll", handleScroll);
-updateCharacterOpacity();
+// ! TODO
+// window.addEventListener("scroll", handleScroll);
+// updateCharacterOpacity();

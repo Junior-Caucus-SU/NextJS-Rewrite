@@ -27,7 +27,7 @@ body {
 }
 
 .children-holder {
-  min-height: 90vh;
+  /* min-height: 90vh; */
 }
 
 a, .interactable {

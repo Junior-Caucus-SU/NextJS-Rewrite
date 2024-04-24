@@ -16,7 +16,7 @@ export default async function Nav(props: NavProps) {
                 <div className={styles.banner}>
                     <p className={styles["banner-text"]}>
                         We’re raising money for Junior Prom 2024! Read our initiative{" "}
-                        <Link href="/JProm" className={styles["banner-links"]}>
+                        <Link href="/jprom" className={styles["banner-links"]}>
                             here
                         </Link>
 

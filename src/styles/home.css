@@ -152,6 +152,7 @@
 
 .border1 {
   width: 100vw;
+  height: auto;
 }
 
 .tribeca-bridge {
@@ -162,6 +163,7 @@
   bottom: -2vw;
   grid-column: 2;
   grid-row: 2;
+  height: auto;
 }
 
 .bridge-pos {
@@ -182,7 +184,7 @@
 }
 
 .polaroids-sky {
-  background: url("/public/static/images/PolaroidsSky.png") no-repeat;
+  background: url("/static/images/PolaroidsSky.png") no-repeat;
   background-size: 100%;
   background-attachment: fixed;
   z-index: 3;
@@ -194,7 +196,7 @@
 }
 
 .polaroids-bottom {
-  background: url("/public/static/images/polaroidsGround.png") no-repeat;
+  background: url("/static/images/polaroidsGround.png") no-repeat;
   background-size: 100%;
   background-attachment: fixed;
   z-index: 7;

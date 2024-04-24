@@ -1,5 +1,5 @@
 'use client'
-import styles from "@/styles/HomeParallax.module.css";
+import "@/styles/HomeParallax.css";
 import Homecoming from "/public/static/images/homecoming.png";
 import GloriousLeaders from "/public/static/images/gloriousLeaders.png";
 import ParallaxBackground from "/public/static/images/parallaxBackgound.png";
@@ -55,6 +55,7 @@ export default function HomeParallax() {
                             alt="homecoming"
                             style={{
                                 width: "60vw",
+                                height: "auto",
                                 display: "block",
                                 marginLeft: "auto",
                                 marginRight: "auto",
@@ -81,6 +82,7 @@ export default function HomeParallax() {
                                     style={{
                                         position: "inherit",
                                         width: "40%",
+                                        height: "auto",
                                     }}
                                 />
                             </Parallax>

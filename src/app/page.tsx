@@ -1,7 +1,14 @@
-import HomePage from "@/utils/HomePage";
+import HomePage from "@/components/HomePage";
+import Nav from "@/components/Nav";
 
 export default async function Home() {
-  return <HomePage />
+  return (
+    <>
+      <Nav page="Home" />
+      <HomePage />
+    </>
+  );
+
 }
 
 
