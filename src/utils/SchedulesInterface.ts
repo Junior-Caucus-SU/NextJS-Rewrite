@@ -1,20 +1,20 @@
-export interface ScheduleItem {
+export interface ScheduleItemInterface {
     name: string;
     startTime: string;
     duration: number;
   }
   
-export default interface Schedule {
+export default interface ScheduleInterface {
     scheduleType: string;
     scheduleName: string;
-    schedule: ScheduleItem[];
+    schedule: ScheduleItemInterface[];
   }
   
-export interface Schedules {
-    Regular: Schedule;
-    Conference: Schedule;
-    Homeroom: Schedule;
-    ["Extended Homeroom"]: Schedule;
-    ["Thurs-Fri"]: Schedule;
+export interface SchedulesInterface {
+    Regular: ScheduleInterface;
+    Conference: ScheduleInterface;
+    Homeroom: ScheduleInterface;
+    ["Extended Homeroom"]: ScheduleInterface;
+    ["Thurs-Fri"]: ScheduleInterface;
     // Add other schedule types here as needed
   }

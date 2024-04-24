@@ -23,7 +23,7 @@ export default async function Nav(props: NavProps) {
                     </p>
                 </div>
                 <div className={styles["banner-texture"]}>
-                    <Image src={LowerBannerTexture} alt="Texture" priority={false} placeholder={"blur"}/>
+                    <Image src={LowerBannerTexture} alt="Texture" priority={false} placeholder={"blur"} />
                 </div>
             </div>
             <div className={styles["nav-container"]}>
@@ -66,7 +66,7 @@ export default async function Nav(props: NavProps) {
                             {getText(props.page, "Events")}
                         </Link>
                         <Link href="/resources" className={currPageGet(props.page, "Resources")}>
-                         {getText(props.page, "Resources")}
+                            {getText(props.page, "Resources")}
                         </Link>
                         <Link href="/socials" >
                             <div className={currPageGet(props.page, "Socials")}>{getText(props.page, "Socials")}</div>

@@ -3,6 +3,8 @@ import "@/Styles/Gallery.css"
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 
+
+// all the people lmao
 import Ayla_Irshad from "/public/static/images/people/Ayla_Irshad.jpg";
 import Chenming_Fang from "/public/static/images/people/Chenming_Fang.jpg";
 import Chloe_Wong from "/public/static/images/people/Chloe_Wong.jpeg";
