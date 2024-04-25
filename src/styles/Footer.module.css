@@ -36,7 +36,7 @@
   color: #0c2b56;
   font-size: 0.9em;
   flex-direction: column;
-  font-family: var(--display-font, "neue-haas-grotesk-text");
+  font-family: var(--text-font, "neue-haas-grotesk-text");
 }
 
 @media (max-width: 450px) {
@@ -49,7 +49,7 @@
   color: #0c2b56;
   text-align: center;
   font-size: 0.9em;
-  font-family: "neue-haas-grotesk-text";
+  font-family: var(--text-font, "neue-haas-grotesk-text");
 }
 
 .school-logo-link {
