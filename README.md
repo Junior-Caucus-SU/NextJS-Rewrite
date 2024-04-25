@@ -10,7 +10,7 @@ To run main branch on localhost, do this:
 
 ```shell
 git clone git@github.com:Junior-Caucus-SU/junior.stuysu.org.git
-cd junior.stuysu.org
+cd NextJS-Rewrite
 npm i
 npm run dev
 ```
