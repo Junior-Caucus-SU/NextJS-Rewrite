@@ -8,7 +8,15 @@ import lightCrawl from "/public/static/images/lightEllipseCrawl.svg";
 
 export default function DateCrawler() {
   //fetch sheet data
-  const [dayType, setDayTypes] = useState<String[][] >([]);
+  const [dayTypes, setDayTypes] = useState<String[][]>([
+    ['Sun', 'Loading...', ''],
+    ['Mon', 'Loading...', ''],
+    ['Tue', 'Loading...', ''],
+    ['Wed', 'Loading...', ''],
+    ['Thu', 'Loading...', ''],
+    ['Fri', 'Loading...', ''],
+    ['Sat', 'Loading...', ''],
+  ]);
   const [date, setDate] = useState(new Date());
   useEffect(() => {
     const fetchSheetsData = async () => {
@@ -41,7 +49,7 @@ export default function DateCrawler() {
 
   return (
     <div>
-      {dayType.map(
+      {dayTypes.map(
         (day, i) =>
           i !== 0 &&
           i !== 6 && (

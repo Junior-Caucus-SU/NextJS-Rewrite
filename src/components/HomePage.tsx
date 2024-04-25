@@ -255,14 +255,16 @@ export default function HomePage() {
                         src={Moon}
                         alt="Fancical Abstract Drawing of a Moon"
                         className="moon-img"
+                        priority={false}
                     />
                     <Image
                         src={Sun}
                         alt="Fancical Abstract Drawing of a Sun"
                         className="sun-img"
+                        priority={false}
                     />
                     <div className="specifics-line">
-                        <Image src={SpecificsLine} alt="Decorative Line Art" className="" />
+                        <Image src={SpecificsLine} alt="Decorative Line Art" className="" priority={false} />
                     </div>
                     <div className="all-schedules">
                         <a

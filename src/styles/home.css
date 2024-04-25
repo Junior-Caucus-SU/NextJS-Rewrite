@@ -100,8 +100,9 @@
 
 .mission-statement {
   color: var(--Main-Blue, #051e4f);
+  font: "ivymode";
   font-size: 4.25em;
-  font-weight: 250;
+  font-weight: 100;
   line-height: 105%;
   container-name: mission-statement;
 }
