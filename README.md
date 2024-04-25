@@ -1,24 +1,31 @@
+# Junior Caucus Website (Rewrite)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+Visit our timeline [here](https://github.com/Junior-Caucus-SU/Caucus_Guidelines/blob/main/TIMELINE.md).
 
-First, run the development server:
+## Quick Start
 
-```bash
+To run main branch on localhost, do this:
+
+```shell
+git clone git@github.com:Junior-Caucus-SU/junior.stuysu.org.git
+cd junior.stuysu.org
+npm i
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Other Commands
+
+Bundles the app into static files for production.
+
+```shell
+npx next build
+```
 
 ## Learn More
 
