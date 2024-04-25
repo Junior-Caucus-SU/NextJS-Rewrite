@@ -13,7 +13,7 @@
   padding-right: 5vw;
 }
 .decorative {
-  font-family: "scotch-display-comp-dingbats";
+  font-family: var(--display-font, "scotch-display-comp-dingbats");
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;

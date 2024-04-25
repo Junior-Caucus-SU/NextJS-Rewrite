@@ -12,7 +12,7 @@
 .the-team {
   display: inline-block;
   color: #051e4f;
-  font-family: "ivymode";
+  font-family: var(--fonting, "ivymode");
   line-height: 0.8em;
   word-wrap: break-word;
   font-size: 20vw;
@@ -66,7 +66,7 @@
   transform: rotate(180deg);
   color: #fbe4df;
   font-size: 128px;
-  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-family: var(--display-font, "neue-haas-grotesk-display"), sans-serif;
   font-weight: 350;
   line-height: 108.8px;
   word-wrap: break-word;

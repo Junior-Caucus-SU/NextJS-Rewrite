@@ -17,7 +17,7 @@
     align-self: center;
     color: var(--Main-Blue, #051e4f);
     /* Caption */
-    font-family: "neue-haas-grotesk-text", sans-serif;
+    font-family: var(--display-font, "neue-haas-grotesk-text"), sans-serif;
     font-size: 1rem;
     font-style: normal;
     font-weight: 300;

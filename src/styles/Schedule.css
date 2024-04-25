@@ -24,7 +24,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 0.3rem;
-    font-family: "neue-haas-grotesk-text", sans-serif;
+    font-family: var(--display-font), sans-serif;
     font-size: 1rem;
     font-style: normal;
     font-weight: 400;
@@ -56,7 +56,7 @@
     font-size: 1.3rem;
     font-weight: 450;
     margin: 0.5rem 0;
-    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-family: var(--display-font, "neue-haas-grotesk-display"), sans-serif;
     margin-bottom: 30px;
   }
   
@@ -95,7 +95,7 @@
   .timer {
     text-align: center;
     position: relative;
-    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-family: var(--display-font, "neue-haas-grotesk-display"), sans-serif;
     font-size: 2.3rem;
     font-style: normal;
     font-weight: 400;
@@ -111,7 +111,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    font-family: "ivymode", serif;
+    font-family: var(--fonting, "ivymode"), serif;
   }
   
   .time {
@@ -142,7 +142,7 @@
   }
   
   .period.dupe {
-    font-family: 'neue-haas-grotesk-display', sans-serif;
+    font-family: var(--display-font, 'neue-haas-grotesk-display'), sans-serif;
     transform: translateY(100%);
     font-size: 9.5rem;
   }

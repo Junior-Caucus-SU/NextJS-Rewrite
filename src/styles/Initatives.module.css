@@ -26,7 +26,7 @@
 
 .frame .event-text {
   color: var(--main-blue);
-  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-family: var(--display-font, "neue-haas-grotesk-display"), sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 450;

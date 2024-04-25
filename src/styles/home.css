@@ -73,7 +73,7 @@
 .all-schedules-link {
   position: relative;
   top: -30%;
-  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-family: var(--display-font, "neue-haas-grotesk-display"), sans-serif;
   color: var(--Pink, #fbe4df);
   font-size: 1rem;
   font-style: normal;
@@ -100,7 +100,7 @@
 
 .mission-statement {
   color: var(--Main-Blue, #051e4f);
-  font: "ivymode";
+  font: var(--fonting);
   font-size: 4.25em;
   font-weight: 100;
   line-height: 105%;
@@ -205,7 +205,7 @@
 
 .polaroids-text {
   z-index: 6;
-  font-family: "ivymode";
+  font-family: var(--fonting, "ivymode");
   mix-blend-mode: color-burn;
   color: var(--Main-Blue, #051e4f);
   display: flex;
@@ -237,18 +237,18 @@
 }
 
 .period-name {
-  font-family: "neue-haas-grotesk-text", sans-serif;
+  font-family: var(--signal-fonting), sans-serif;
   font-size: 0.8rem;
   font-weight: 400;
 }
 
 .period-time {
-  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-family: var(--display-font, "neue-haas-grotesk-display"), sans-serif;
   font-size: 1.5rem;
 }
 
 .decorative {
-  font-family: "scotch-display-comp-dingbats";
+  font-family: var(--signal-font, "scotch-display-comp-dingbats");
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;

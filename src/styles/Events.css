@@ -28,7 +28,7 @@
 .title {
   color: var(--Main-Blue, #051e4f);
   /* Title */
-  font-family: ivymode;
+  font-family: var(--fonting, "ivymode");
   font-size: 3rem;
   font-style: normal;
   font-weight: 350;
