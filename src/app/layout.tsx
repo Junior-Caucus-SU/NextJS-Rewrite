@@ -54,7 +54,7 @@ export default function RootLayout({
         <Footer />
         <div className="web-texture" />
 
-        <link rel="stylesheet" href="https://use.typekit.net/zfd0jrc.css" />
+        <link rel="preconnect stylesheet" href="https://use.typekit.net/zfd0jrc.css" />
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" defer />
         <script noModule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" defer />      </body>
     </html>

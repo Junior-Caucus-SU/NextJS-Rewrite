@@ -44,7 +44,6 @@ export default function Gallery() {
         const hiddenElements = document.querySelectorAll(".to-fly-from-right");
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((element) => {
-                console.log(element);
                 if (element.isIntersecting) {
                     element.target.classList.add("show");
                 } else {
@@ -62,7 +61,6 @@ export default function Gallery() {
         const hiddenElements = document.querySelectorAll(".to-fly-from-left");
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((element) => {
-                console.log(element);
                 if (element.isIntersecting) {
                     element.target.classList.add("show");
                 } else {
@@ -79,7 +77,6 @@ export default function Gallery() {
         const hiddenElements = document.querySelectorAll(".to-fade-in");
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((element) => {
-                console.log(element);
                 if (element.isIntersecting) {
                     element.target.classList.add("show");
                 } else {
