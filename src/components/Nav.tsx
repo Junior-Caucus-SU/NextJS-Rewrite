@@ -23,7 +23,7 @@ export default async function Nav(props: NavProps) {
                     </p>
                 </div>
                 <div className={styles["banner-texture"]}>
-                    <Image src={LowerBannerTexture} alt="Texture" priority={false} placeholder={"blur"} />
+                    <Image src={LowerBannerTexture} alt="Texture" priority={true} placeholder={"blur"} />
                 </div>
             </div>
             <div className={styles["nav-container"]}>
