@@ -360,7 +360,7 @@ function getPeriodTimes(DayType: string): string[] {
     return final;
 };
 
-const updateCharacterOpacity = () => {
+function updateCharacterOpacity():void {
     const chars = document.querySelectorAll(".mission-statement .character");
     const viewportHeight = window.innerHeight;
 
@@ -373,7 +373,7 @@ const updateCharacterOpacity = () => {
     });
 };
 
-const handleScroll = () => {
+function handleScroll():void {
     window.requestAnimationFrame(updateCharacterOpacity);
 };
 

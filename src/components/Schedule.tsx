@@ -42,15 +42,15 @@ export default function ScheduleBanner(props: SchedulePropsInterface) {
       dateFormat.longWK,
     ))
     setIsWeekend(currentDateTime.getDay() === 0 || currentDateTime.getDay() === 6)
-    setTimeCircleClassName(isWeekend ? "time-circle hide" : "time-circle");
-  }, [currentDateTime, isWeekend])
+    setTimeCircleClassName(isWeekend || props.dayType.trim() == "No School" ? "time-circle hide" : "time-circle");
+  }, [currentDateTime, isWeekend, props.dayType])
 
   const circumference = 2 * Math.PI * 50;
   const progress = isWeekend ? 0 : props.minutes / (props.periodDuration || 1);
   const strokeDashoffset = circumference * (1 - progress);
 
   useEffect(() => {
-    setFrontNameText(isWeekend ? "No School" : String(props.currPeriod).trim().length != 0? String(props.currPeriod): frontNameText)
+    setFrontNameText(isWeekend || props.dayType.trim() == "No School" ? "No School" : String(props.currPeriod).trim().length != 0? String(props.currPeriod): frontNameText)
     setBackNameText(isWeekend ? "Weekend" : `${props.dayType} ${props.AorBDay}`)
   }, [isWeekend, props.currPeriod, props.dayType, props.AorBDay, frontNameText])
 

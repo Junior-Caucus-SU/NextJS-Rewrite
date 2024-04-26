@@ -25,6 +25,27 @@ Bundles the app into static files for production.
 npx next build
 ```
 
+## Setting the Google Sheets File
+
+To run correctly, this project parses data from google sheets – the specific google sheets structure that needs to be used will be explained at a later point.
+
+To setting the schedule, here are the special keywords.
+
+| dayType    | Meaning |
+| -------- | ------- |
+| Conference | Conference Day for Teachers |
+| Extended | Extended Homeroom Schedule |
+| Homeroom | Normal Homeroom Day |
+| Regular | Regular School Day |
+| TF | Thursday-Friday Schedule|
+| No School | No School |
+
+## Next Steps for this project.
+
+1. Organize the code so it relies on fewer api calls and less javascript
+2. Rework the README so this could be run by anyone
+3. Optimize the code
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
