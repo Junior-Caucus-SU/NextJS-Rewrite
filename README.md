@@ -9,15 +9,13 @@ Visit our timeline [here](https://github.com/Junior-Caucus-SU/Caucus_Guidelines/
 To run main branch on localhost, do this:
 
 ```shell
-git clone git@github.com:Junior-Caucus-SU/junior.stuysu.org.git
+git clone https://github.com/Junior-Caucus-SU/NextJS-Rewrite.git
 cd NextJS-Rewrite
 npm i
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 ## Other Commands
 
