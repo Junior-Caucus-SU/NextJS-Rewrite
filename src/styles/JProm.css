@@ -1,7 +1,8 @@
 .jprom-container {
+    padding-top: 1em;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-templage-rows: 1fr 1fr 1fr 1fr;
+    grid-templage-rows: 1fr;
     min-width: 100vw;
     min-height: 100vh;
 }
@@ -18,9 +19,18 @@
     line-height: 100%; /* 3rem */
 }
 
+.jprom-description {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    display:flex;
+    flex-direction: column;
+
+}
+
+
 .description {
     grid-column: 1 / 3;
-    grid-row: 2 / 3;
+    grid-row: 1;
     padding: 20px;
     font-family: var(--text-font, "neue-haas-grotesk-text"), "sans-serif";
     color: var(--Main-Blue, "#0c2b56");
@@ -28,7 +38,7 @@
 
 .funding-goals-container {
     grid-column: 3 / 4;
-    grid-row: 1 / 4;
+    grid-row: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,9 +46,9 @@
 
 .header-border {
     grid-column: 1/3;
-    grid-row: 2;
+    grid-row: 1;
     width: 60vw;
-    margin-left: 50px;
+    margin-left: 20px;
 }
 
 .progress-bar {
@@ -46,6 +56,14 @@
     height: 50vh;
     width: 50px;
     background-color: var(--Main-Blue, "#0c2b56");
+    z-index: -1;
+}
+
+.progress-inside {
+    background-color: "green";
+    height: 40%;
+    width: 100%;
+    z-index: 5000000230930099039490;
 }
 
 .funding-description {
