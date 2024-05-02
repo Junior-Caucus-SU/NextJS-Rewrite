@@ -1,5 +1,5 @@
 "use client"
-import "@/Styles/Gallery.css"
+import "@/styles/Gallery.css"
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 
