@@ -34,7 +34,7 @@ export default async function Jprom() {
                     </div>
                     <div className="funding-goals-container">
                         <div className="progress-bar">
-                            <div className="progress-inside" style={{height:`${100 - text}%`}}/>
+                            <div className="progress-inside" style={{height:`${100 - text}%`, transition: "0.5s linear"}}/>
                         </div>
                         <div className="progress-description">
                             JProm funding requirements!
