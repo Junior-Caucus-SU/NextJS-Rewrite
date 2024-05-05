@@ -291,6 +291,7 @@ export default function HomePage() {
                         We&apos;ll stay with you this year
                     </div>
                     <div className="polaroids-bottom polaroids"></div>
+                    
                 </div>
             </div>
         </>
