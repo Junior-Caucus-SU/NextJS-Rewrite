@@ -191,7 +191,7 @@
 
 .polaroids {
   width: 100vw;
-  height: 300vh;
+  height: 150vw;
   grid-column: 1;
   grid-row: 1;
 }
