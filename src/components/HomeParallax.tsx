@@ -46,7 +46,7 @@ export default function HomeParallax() {
                         },
                     ]}
                     style={{
-                        height: "80vw",
+                        height: "150vh",
                     }}
                 >
                     <ParallaxBannerLayer speed={-20}>
